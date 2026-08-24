@@ -27,3 +27,26 @@ git clone https://github.com/Pranay7030/Pranay-cyborg-osint.git
 cd Pranay-cyborg-osint
 pip install -r requirements.txt
 python main.py
+
+---
+
+### ⚠️ Disclaimer
+**For Educational Purpose Only!**
+
+Ye tool sirf education aur awareness ke liye banaya gaya hai.
+- Iska use kisi ka private data nikalne ke liye mat karo
+- Kisi ko hack, stalk ya harass karne ke liye use mat karo
+- Hum kisi bhi illegal activity ko support nahi karte
+
+Galat use karne par zimmedari aapki hogi. Bhandara Cyber Squad hamesha Ethical Hacking ko promote karta hai.
+
+### ⭐ Support & Credits
+Agar ye tool pasand aaya ho toh:
+- GitHub pe ⭐ Star de do
+- Follow karo: [Pranay7030](https://github.com/Pranay7030)
+
+**Created by:** Pranay aka Pranav Leak Hunter
+**Squad:** Bhandara Cyber Squad 💀
+**Version:** SKULL x MATRIX v2.0
+
+> Bhandara Cyber Squad OP! 🔥 Jai Maharashtra!
