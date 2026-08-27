@@ -8,40 +8,29 @@ import os
 console = Console()
 
 def show_banner():
-    def apk_scanner_module():
-    console.print("\n[bold green]📦 BHACKSH APK SCANNER V2[/bold green]")
-    apk_path = input("APK ka path daal BHACKSH: ").strip().replace('"','')
-    if not os.path.exists(apk_path):
-        console.print("[bold red]File nahi mila! Path check kar[/bold red]")
-        return
-    try:
-        with zipfile.ZipFile(apk_path, 'r') as apk:
-            files = apk.namelist()
-            console.print(f"[cyan]Total Files in APK: {len(files)}[/cyan]")
-            if 'AndroidManifest.xml' in files:
-                data = apk.read('AndroidManifest.xml')
-                perms = re.findall(b'android\\.permission\\.[A-Z_]+', data)
-                if perms:
-                    console.print("[bold red]Found Permissions:[/bold red]")
-                    for p in set(perms):
-                        console.print(f" [yellow]{p.decode()}[/yellow]")
-                else:
-                    console.print("[dim]No permissions decoded (binary xml)[/dim]")
-            console.print("[bold green]Scan Complete - BHACKSH V2 FINAL[/bold green]")
-    except Exception as e:
-        console.print(f"[red]Error: {e}[/red]")
-    skull_banner = """
-██████╗ ██╗ ██╗ █████╗ ███╗ ██╗██████╗ █████╗ ██████╗ █████╗
-██╔══██╗██║ ██║██╔══██╗████╗ ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗
-██████╔╝███████║███████║██╔██╗ ██║██║ ██║███████║██████╔╝███████║
-██╔══██╗██╔══██║██╔══██║██║╚██╗██║██║ ██║██╔══██║██╔══██╗██╔══██║
-██████╔╝██║ ██║██║ ██║██║ ╚████║██████╔╝██║ ██║██║ ██║██║ ██║
-╚═════╝ ╚═╝ ╚═╝╚═╝ ╚═╝╚═╝ ╚═══╝╚═════╝ ╚═╝ ╚═╝╚═╝ ╚═╝╚═╝ ╚═╝
-    """
-    console.print(Panel(skull_banner, title="[bold green]BHANDARA CYBER SQUAD[/bold green]", subtitle="[cyan]Created by Pranay | Pranav Leak Hunter[/cyan]", border_style="green"))
-    console.print("[bold cyan]💀 CYBORG OSINT - SKULL x MATRIX Edition 💀[/bold cyan]\n")
-    console.print("[dim]Repo: https://github.com/Pranay7030/Pranay-cyborg-osint[/dim]\n")
+    console.clear()
+    console.print(Panel.fit(
+        "[bold red] ____  _   _    ____ _  __ ____  _   _[/bold red]\n"
+        "[bold yellow]| __ )| | | |  / \  / ___| |/ // ___|| | | |[/bold yellow]\n"
+        "[bold green]|  _ \| |_| | / _ \ | |   | ' / \___ \| |_| |[/bold green]\n"
+        "[bold cyan]| |_) |  _  |/ ___ \| |___| . \  ___) |  _  |[/bold cyan]\n"
+        "[bold blue]|____/|_| |_/_/   \_\____|_|\_\|____/|_| |_|[/bold blue]\n\n"
+        "[bold white on red]   BHANDARA CYBER SQUAD - V10 FINAL OP!   [/bold white on red]",
+        border_style="bold red",
+        title="[bold yellow]🔥 BHACKSH TOOLKIT 🔥[/bold yellow]"
+    ))
+    console.print(Panel(
+        "[bold magenta]👑 Made With 💀 By: [bold white on magenta] PRANAY (BHACKSH) [/bold white on magenta][/bold magenta]\n"
+        "[bold cyan]📍 Location: Bhandara, Maharashtra | Team: Bhandara Cyber Squad OP![/bold cyan]\n\n"
+        "[bold yellow]⚠️  DISCLAIMER:[/bold yellow] [bold white]This tool is for [bold red]EDUCATIONAL PURPOSE ONLY![/bold red][/bold white]\n"
+        "[dim white]We are not responsible for any misuse or illegal activity.[/dim white]",
+        border_style="bold magenta",
+        title="[bold green]✨ INFO ✨[/bold green]",
+        padding=(1, 2)
+    ))
 
+def link_osint():
+    console.print("[bold yellow][*] LINK OSINT[/bold yellow]")
 def link_osint():
     console.print("\n[bold yellow][*] LINK OSINT[/bold yellow]")
     link = input("Link daal: ")
