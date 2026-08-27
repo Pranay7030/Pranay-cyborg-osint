@@ -1,12 +1,35 @@
 from rich.console import Console
 from rich.panel import Panel
 import requests
+import zipfile
 import re
 import os
 
 console = Console()
 
 def show_banner():
+    def apk_scanner_module():
+    console.print("\n[bold green]📦 BHACKSH APK SCANNER V2[/bold green]")
+    apk_path = input("APK ka path daal BHACKSH: ").strip().replace('"','')
+    if not os.path.exists(apk_path):
+        console.print("[bold red]File nahi mila! Path check kar[/bold red]")
+        return
+    try:
+        with zipfile.ZipFile(apk_path, 'r') as apk:
+            files = apk.namelist()
+            console.print(f"[cyan]Total Files in APK: {len(files)}[/cyan]")
+            if 'AndroidManifest.xml' in files:
+                data = apk.read('AndroidManifest.xml')
+                perms = re.findall(b'android\\.permission\\.[A-Z_]+', data)
+                if perms:
+                    console.print("[bold red]Found Permissions:[/bold red]")
+                    for p in set(perms):
+                        console.print(f" [yellow]{p.decode()}[/yellow]")
+                else:
+                    console.print("[dim]No permissions decoded (binary xml)[/dim]")
+            console.print("[bold green]Scan Complete - BHACKSH V2 FINAL[/bold green]")
+    except Exception as e:
+        console.print(f"[red]Error: {e}[/red]")
     skull_banner = """
 ██████╗ ██╗ ██╗ █████╗ ███╗ ██╗██████╗ █████╗ ██████╗ █████╗
 ██╔══██╗██║ ██║██╔══██╗████╗ ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗
@@ -54,22 +77,22 @@ def email_leak_checker():
 try:
     os.system('clear' if os.name == 'posix' else 'cls')
 except:
-    pass
+       show_banner()
 
-show_banner()
+    while True:
+        console.print("\n[bold white][1] Link OSINT | [2] Insta OSINT | [3] Email Leak Checker | [4] BHACKSH APK Scanner V2 | [5] Exit[/bold white]")
+        choice = input("\nChoice daal (1-5): ")
 
-while True:
-    console.print("\n[bold white][1] Link OSINT | [2] Insta OSINT | [3] Email Leak Checker | [4] Exit[/bold white]")
-    choice = input("\nChoice daal (1-4): ")
-
-    if choice == "1":
-        link_osint()
-    elif choice == "2":
-        insta_osint()
-    elif choice == "3":
-        email_leak_checker()
-    elif choice == "4":
-        console.print("[bold red]Exiting... Bhandara Cyber Squad OP! 🔥[/bold red]")
-        break
-    else:
-        console.print("[red]Galat choice! 1-4 me se daal[/red]")
+        if choice == "1":
+            link_osint()
+        elif choice == "2":
+            insta_osint()
+        elif choice == "3":
+            email_leak_checker()
+        elif choice == "4":
+            apk_scanner_module()
+        elif choice == "5":
+            console.print("[bold red]Exiting... Bhandara Cyber Squad OP! 👑[/bold red]")
+            break
+        else:
+            console.print("[bold red]Galat choice! 1-5 me se daal[/bold red]")
